@@ -119,7 +119,7 @@ define(function (require, exports, module) {
             
             case "PHP":
                 if (prefs.get("args")) {
-                    regex = /((\w*)\s*[=:]\s*)?function\s*(\w*)\s*(\([\w,\s$=]*\))/g;
+                    regex = /((\w*)\s*[=:]\s*)?function\s*(\w*)\s*(\([\w,\s$='"]*\))/g;
                 } else {
                     regex = /((\w*)\s*[=:]\s*)?function\s*(\w*)\s*()\(/g;
                 }
