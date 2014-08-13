@@ -44,6 +44,13 @@
     border-top: 1px solid #27282A;
 }
 
+.crabcode-outline-unnamed {
+    color: #A3A3A3 !important;
+    padding: 2px 0 2px 22px;
+    border-bottom: 1px solid rgba(0,0,0,0);
+    border-top: 1px solid rgba(0,0,0,0);
+}
+
 .crabcode-outline-css-id, .crabcode-outline-js-function {
     color: #62D1FF;
 }
