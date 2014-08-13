@@ -55,9 +55,7 @@
     content:'Anonymous Function';
     float:right;
     opacity: 0.3;
-    margin-right: 10px;
-    position: absolute;
-    right:0px;
+    padding-right: 10px;
 }
 
 .crabcode-outline-css-id, .crabcode-outline-js-function {
