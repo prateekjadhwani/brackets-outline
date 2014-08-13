@@ -166,6 +166,7 @@ define(function (require, exports, module) {
                 break;
             
             case "CSS":
+            case "SCSS" :
                 regex = /([^\r\n,{}]+)((?=[^}]*\{)|\s*\{)/g;
                 
                 var lines = findMatches(regex, "css", doc.getText());
