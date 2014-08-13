@@ -152,16 +152,18 @@ define(function (require, exports, module) {
 
                 fkt.forEach(function (match) {
                     name = match[0];
-
+                    var unnamedClass = "";
+                    
                     if (name.length === 0 || name[0] === "(") {
                         if (prefs.get("unnamed")) {
                             name = "function" + name;
+                            unnamedClass = " crabcode-outline-unnamed";
                         } else {
                             return;
                         }
                     }
 
-                    $("#crabcode-outline-window").append($(document.createElement("div")).addClass("crabcode-outline-entry crabcode-outline-js-function").text(name).click({ line: match[1], ch: match[2] }, goToLine));
+                    $("#crabcode-outline-window").append($(document.createElement("div")).addClass("crabcode-outline-entry crabcode-outline-js-function" + unnamedClass).text(name).click({ line: match[1], ch: match[2] }, goToLine));
                 });
                 break;
             
