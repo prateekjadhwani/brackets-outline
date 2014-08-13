@@ -119,15 +119,15 @@ define(function (require, exports, module) {
             
             case "PHP":
                 if (prefs.get("args")) {
-                    regex = /((\w*)\s*[=:]\s*)?function\s*(\w*)\s*(\([\w,\s$='"]*\))/g;
+                    regex = /((\w*)\s*[=:]\s*)?function(\s*|\s+\w*\s*)(\([\w,\s$='"]*\))/g;
                 } else {
-                    regex = /((\w*)\s*[=:]\s*)?function\s*(\w*)\s*()\(/g;
+                    regex = /((\w*)\s*[=:]\s*)?function(\s*|\s+\w*\s*)()\(/g;
                 }
                 
                 fkt = findMatches(regex, "js", doc.getText());
                     
                 fkt.forEach(function (match) {
-                    name = match[0];
+                    name = match[0].trim();
                     
                     if (name.length === 0 || name[0] === "(") {
                         if (prefs.get("unnamed")) {
@@ -143,9 +143,9 @@ define(function (require, exports, module) {
             
             case "JavaScript":
                 if (prefs.get("args")) {
-                    regex = /((\w*)\s*[=:]\s*)?function\s*(\w*)\s*(\([\w,\s]*\))/g;
+                    regex = /((\w*)\s*[=:]\s*)?function(\s*|\s+\w*\s*)(\([\w,\s]*\))/g;
                 } else {
-                    regex = /((\w*)\s*[=:]\s*)?function\s*(\w*)\s*()\(/g;
+                    regex = /((\w*)\s*[=:]\s*)?function(\s*|\s+\w*\s*)()\(/g;
                 }
                 
                 fkt = findMatches(regex, "js", doc.getText());
@@ -166,6 +166,7 @@ define(function (require, exports, module) {
                 break;
             
             case "CSS":
+            case "SCSS":
                 regex = /([^\r\n,{}]+)((?=[^}]*\{)|\s*\{)/g;
                 
                 var lines = findMatches(regex, "css", doc.getText());
