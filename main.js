@@ -21,7 +21,7 @@
 */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets, window */
+/*global define, $, brackets, window, document */
 define(function (require, exports, module) {
     "use strict";
     
@@ -48,7 +48,7 @@ define(function (require, exports, module) {
         
         for (i = 0; i < lines.length; i++) {
             if (lines[i].indexOf("data:") > -1) {
-                var r = /data:\w+\/[\w-]+;/
+                var r = /data:\w+\/[\w-]+;/;
                 
                 if (lines[i].match(r) !== null)
                     continue;
@@ -67,7 +67,7 @@ define(function (require, exports, module) {
                     break;
 
                 case "js":
-                    name = (match[3] || match[2] || "") + (match[4] || "");
+                    name = (match[3].trim() || match[2] || "") + (match[4] || "");
                     break;
 
                 default:
